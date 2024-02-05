@@ -1,87 +1,759 @@
-h1 {
-  color: #575F7D;
-  font-size: 32px;
-  font-weight: 900;
-}
-
-.image_profil {
-  width: 100px;
-  border-radius: 50%;
-}
-
-p {
-  display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
+:root {
+  --glitched-long-duration: 3s;
+  --yellow-color: #f9f002;
+  --yellow-color-opacity: #f9f00242;
+  --orange-color: #ff9800;
+  --border-color: #8ae66e;
+  --red-color: #ff003c;
+  --blue-color: #136377;
+  --green-color: #446d44;
+  --purple-color: purple;
+  --neon-color: #39ff14;
+  --black-color: #000;
+  --glitched-duration: 0.9s;
 }
 
 body {
-    background: #F7F9FC;
-    color: #575F7D;
-    font-family: 'lora', serif;
-    font-size: 17px;
-    font-weight: lighter;
+  background-color: var(--yellow-color);
+  min-height: 220vh;
+  padding: 30px;
 }
 
-a {
-  font-family: 'Roboto', sans-serif;
-  text-decoration: none;
-  color: #6B72E1;
-  font-weight: 600;
-  font-size: 16px;
+body * {
+  font-family: "Advent Pro", arial ;
 }
 
-h2 {
-  color: #7ECE90;
-  font-size: 20px;
-  font-weight: lighter;
+/* Titles */
+
+h1.cyberpunk,
+h2.cyberpunk,
+h3.cyberpunk,
+h4.cyberpunk {
+  font-size: 2rem;
+  line-height: 2.2rem;
+  font-weight: 200;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+h2.cyberpunk {
+  font-size: 1.7rem;
+  line-height: 1.9rem;
+  font-weight: 300;
+}
+
+h3.cyberpunk {
+  font-size: 1.4rem;
+  line-height: 1.6rem;
   font-weight: 500;
 }
 
-h1, h2, h3 {
-  font-family: 'Roboto', sans-serif;
+h4.cyberpunk {
+  font-size: 1rem;
+  line-height: 1.2rem;
+  font-weight: 700;
 }
 
-@media (max-width: 960px) {
-  .container {
-    width: 700px;
-  }
+h1.cyberpunk:before,
+h2.cyberpunk:before,
+h3.cyberpunk:before,
+h4.cyberpunk:before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    left: 2px;
+    width: 100%;
+    height: 10px;
+    background-color: #000;
+    clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 100% 6px, 85px 6px, 80px 10px, 0px 10px);
 }
-@media (max-width: 720px) {
-  .container {
-    width: 500px;
-  }
+
+h1.cyberpunk.glitched {
+  animation-name: h1glitched;
+  animation-duration: calc(var(--glitched-duration) * 1.4);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
-@media (max-width: 540px) {
-  .container {
-    width: 300px;
+
+h2.cyberpunk.glitched {
+  animation-name: h1glitched;
+  animation-duration: calc(var(--glitched-duration) * 1.7);
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
+  animation-timing-function: linear;
+}
+
+h3.cyberpunk.glitched {
+  animation-name: h1glitched;
+  animation-duration: calc(var(--glitched-duration) * 1.1);
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
+  animation-timing-function: ease-out;
+}
+
+h4.cyberpunk.glitched {
+  animation-name: h1glitched;
+  animation-duration: calc(var(--glitched-duration) * 2.1);
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes h1glitched {
+  0% {
+    transform: skew(-20deg);
+    left: -4px;
+  }
+  10% {
+    transform: skew(-20deg);
+    left: -4px;
+  }
+  11% {
+    transform: skew(0deg);
+    left: 2px;
+  }
+  50% {
+    transform: skew(0deg);
+  }
+  51% {
+    transform: skew(10deg);
+  }
+  59% {
+    transform: skew(10deg);
+  }
+  60% {
+    transform: skew(0deg);
+  }
+  100% {
+    transform: skew(0deg);
   }
 }
 
-div {
+h1.cyberpunk.glitched:before {
+  animation-name: h1beforeglitched;
+  animation-duration: calc(var(--glitched-duration) * 2);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes h1beforeglitched {
+  0% {
+    transform: skew(-20deg);
+    left: -4px;
+    clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 100% 6px, 85px 6px, 80px 10px, 0px 10px);
+  }
+  10% {
+    transform: skew(-20deg);
+    left: -4px;
+    clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 100% 6px, 85px 6px, 80px 10px, 0px 10px);
+  }
+  11% {
+    transform: skew(0deg);
+    left: 2px;
+    clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 100% 6px, 85px 6px, 80px 10px, 0px 10px);
+  }
+  50% {
+    transform: skew(0deg);
+    clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 100% 6px, 85px 6px, 80px 10px, 0px 10px);
+  }
+  51% {
+    transform: skew(0deg);
+    clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 40% 5px, calc(40% - 30px) 0px, calc(40% + 30px) 0px, calc(45% - 15px) 5px, 100% 5px, 100% 6px, calc(45% - 14px) 6px, calc(40% + 29px) 1px, calc(40% - 29px) 1px, calc(40% + 1px) 6px, 85px 6px, 80px 10px, 0px 10px);
+  }
+  59% {
+    transform: skew(0deg);
+    clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 40% 5px, calc(40% - 30px) 0px, calc(40% + 30px) 0px, calc(45% - 15px) 5px, 100% 5px, 100% 6px, calc(45% - 14px) 6px, calc(40% + 29px) 1px, calc(40% - 29px) 1px, calc(40% + 1px) 6px, 85px 6px, 80px 10px, 0px 10px);
+  }
+  60% {
+    transform: skew(0deg);
+    clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 100% 6px, 85px 6px, 80px 10px, 0px 10px);
+  }
+  100% {
+    transform: skew(0deg);
+    clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 100% 6px, 85px 6px, 80px 10px, 0px 10px);
+  }
+}
+
+h2.cyberpunk:before {
+  clip-path: polygon(0px 5px, 35px 5px, 40px 0px, 85px 0px, 90px 5px, 100% 5px, 100% 6px, 85px 6px, 80px 10px, 20px 10px, 15px 6px, 0px 6px);
+}
+
+h2.cyberpunk.glitched:before {
+  animation-name: h2beforeglitched;
+  animation-duration: calc(var(--glitched-duration) * 2);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes h2beforeglitched {
+  0% {
+    transform: scaleY(1);
+  }
+  10% {
+    transform: scaleY(1);
+  }
+  11% {
+    transform: scaleY(-1);
+  }
+  50% {
+    transform: scaleY(-1);
+  }
+  51% {
+    transform: scaleY(1);
+  }
+  59% {
+    transform: scaleY(1);
+  }
+  60% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+h3.cyberpunk:before {
+        clip-path: polygon(0px 5px, 10px 5px, 15px 0px, 40px 0px, 45px 5px, 100% 5px, 100% 6px, 31px 6px, 27px 2px, 15px 2px, 8px 10px, 0px 10px);
+}
+
+h4.cyberpunk:before {
+        clip-path: polygon(0px 3px, 15px 3px, 20px 0px, 80px 0px, 85px 3px, 100% 3px, 100% 4px, 85px 4px, 80px 7px, 20px 7px, 15px 4px, 0px 4px);
+}
+
+h1.cyberpunk:after,
+h2.cyberpunk:after,
+h3.cyberpunk:after,
+h4.cyberpunk:after,
+p.cyberpunk:after {
+  content: "_";
+  animation-name: hxafter;
+  animation-duration: var(--glitched-duration);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+h3.cyberpunk:after,
+h4.cyberpunk:after {
+  animation-direction: reverse;
+  animation-duration: calc(var(--glitched-duration) / 2);
+}
+
+@keyframes hxafter {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  51% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Separator */
+
+hr {
+  height: 14px;
+  background-color: #000;
+  width: 100%;
+  clip-path: polygon(1px 0px, 0px 0px, 0px 0px, 8px 14px, 13px 14px, 22px 7px, 42px 6px, 49px 2px, 100% 2px, 100% 0px, 42px 0px, 35px 5px, 22px 6px, 13px 13px, 9px 13px);
+  animation-name: hr;
+  animation-duration: var(--glitched-long-duration);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes hr {
+  0% {
+    transform: skew(0deg);
+  }
+  15% {
+    transform: skew(0deg);
+  }
+  16% {
+    transform: skew(20deg);
+  }
+  20% {
+    transform: skew(20deg);
+  }
+  21% {
+    transform: skew(0deg);
+  }
+  100% {
+    right: 35px;
+  }
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+  background-color: var(--yellow-color);
+}
+::-webkit-scrollbar-button {
+  display: none;
+}
+::-webkit-scrollbar-track {
+  display: none;
+}
+::-webkit-scrollbar-track-piece {
+  display: none;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--red-color);
+  border-bottom: 2px solid var(--border-color);
+  border-right: 2px solid var(--border-color);
+  transition: background var(--glitched-duration);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--orange-color);
+}
+::-webkit-scrollbar-corner {
+  display: none;
+}
+::-webkit-resizer {
+  display: none;
+}
+
+a.cyberpunk2077 {
+  text-decoration: none;
+  --background-color: #ff003c;
   display: block;
+  border: none;
+  border-radius: 0%;
+  font-size: 1.5rem;
+  line-height: 100%;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: "Advent Pro", arial;
+  padding: 35px 75px;
+  margin: 10px;
+  position: relative;
+  color: #fff;
+  border-right: 3px solid #8ae66e;
+  clip-path: polygon(
+    -15px 0%,
+    calc(100% + 15px) 0%,
+    calc(100% + 15px) 100%,
+    20px 100%,
+    -15px calc(100% - 35px)
+  );
+  cursor: pointer;
+  background-color: var(--background-color);
+  outline: none;
 }
 
-.card-white {
-  background-color: white;
-  padding: 40px;
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  margin: 20px 0px;
-  text-align: center;
+a.cyberpunk2077:hover, a.cyberpunk2077:focus {
+  animation-name: hover;
+  animation-duration: var(--glitched-duration);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
-#introduction p {
-  margin-bottom: 40px;
+a.cyberpunk2077:after {
+  content: "R-25";
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  right: 25px;
+  padding: 2px 2px 0px 2px;
+  font-size: 0.6rem;
+  line-height: 9px;
+  color: #000;
+  background-color: #f9f002;
+  border-left: 2px solid #8ae66e;
 }
 
-.btn-blue {
-  background-color: #6B72E1;
-  color: white;
-  padding: 15px 20px;
-  border-radius: 4px;
+a.cyberpunk2077:hover:after, a.cyberpunk2077:focus:after {
+  animation-name: hoverafter;
+  animation-duration: var(--glitched-duration);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+a.cyberpunk2077:before {
+  --outside: 4px;
+  content: "";
+  position: absolute;
+  display: none;
+  background-color: var(--background-color);
+  width: calc(100% + (var(--outside) * 2));
+  height: 12px;
+  top: 0px;
+  left: calc(0px - 1px - var(--outside));
+  border-left: 2px solid #8ae66e;
+  border-right: 2px solid #8ae66e;
+}
+
+a.cyberpunk2077:hover:before, a.cyberpunk2077:focus:before {
+  display: block;
+  animation-name: hoverbefore;
+  animation-duration: var(--glitched-duration);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes hover {
+  0% {
+    transform: skew(0deg);
+  }
+  60% {
+    transform: skew(0deg);
+  }
+  61% {
+    transform: skew(10deg);
+  }
+  70% {
+    transform: skew(10deg);
+  }
+  71% {
+    transform: skew(0deg);
+  }
+  100% {
+    transform: skew(0deg);
+  }
+}
+
+@keyframes hoverbefore {
+  0% {
+    display: none;
+    top: 0px;
+  }
+  10% {
+    display: none;
+    top: 0px;
+  }
+  11% {
+    display: block;
+    top: 10px;
+    left: calc(0px - 0px - var(--outside));
+  }
+  29% {
+    top: 10px;
+  }
+  30% {
+    display: none;
+    top: 0px;
+  }
+  50% {
+    display: none;
+    top: 0px;
+  }
+  51% {
+    display: block;
+    top: 55px;
+    filter: blur(1px);
+    height: 22px;
+  }
+  90% {
+    display: block;
+    top: 55px;
+    height: 22px;
+  }
+  91% {
+    filter: blur(0px);
+    display: none;
+    top: 0px;
+    height: 12px;
+  }
+  100% {
+    display: none;
+    top: 0px;
+  }
+}
+
+@keyframes hoverafter {
+  0% {
+    right: 45px;
+  }
+
+  10% {
+    right: 45px;
+  }
+  11% {
+    right: 35px;
+  }
+  20% {
+    transform: skew(0deg);
+  }
+  21% {
+    transform: skew(-10deg);
+  }
+  40% {
+    transform: skew(-10deg);
+  }
+  41% {
+    transform: skew(0deg);
+  }
+  49% {
+    right: 35px;
+  }
+  50% {
+    right: 55px;
+  }
+
+  60% {
+    right: 55px;
+  }
+  61% {
+    right: 35px;
+  }
+  70% {
+    transform: skew(0deg);
+  }
+  71% {
+    transform: skew(10deg);
+  }
+  80% {
+    transform: skew(10deg);
+  }
+  81% {
+    transform: skew(0deg);
+  }
+  100% {
+    right: 35px;
+  }
+}
+
+.cyberpunk img {
+  padding: 30px ;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 15px;
+  clip-path: polygon(0px 25px, 26px 0px, calc(60% - 25px) 0px, 60% 25px, 100% 25px, 100% calc(100% - 10px), calc(100% - 15px) calc(100% - 10px), calc(80% - 10px)  calc(100% - 10px), calc(80% - 15px) calc(100% - 0px), 10px  calc(100% - 0px), 0% calc(100% - 10px));
+  background-color: var(--black-color);
+  max-width: calc(100% - 10px);
+}
+
+section.cyberpunk {
+  background-color: var(--yellow-color);
+  color: var(--black-color);
+  padding: 60px 60px;
+  position: relative;
+  margin-top: -1px;
+  margin-bottom: -1px;
+}
+section.cyberpunk:after,
+section.cyberpunk.black:after {
+  content: " ";
+  display: block;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 30px;
+  background-color: var(--black-color);
+  position: absolute;
+  clip-path: polygon(0% 0%, 22% 0%, calc(22% + 30px) 30px, 52% 30px, calc(52% + 15px) 15px, 70% 15px, calc(70% + 15px) 30px, 90% 30px, calc(90% + 30px) 0px, 100% 0px, 100% 30px, 0px 30px);
+}
+
+section.cyberpunk.both:after,
+section.cyberpunk.both.black:after {
+  height: 100%;
+  clip-path: polygon(
+    0px 30%,
+    30px calc(30% + 30px),
+    30px calc(100% - 30px),
+    22% calc(100% - 30px),
+    calc(22% + 30px) 100%,
+    52% 100%, calc(52% + 15px)
+    calc(100% - 15px),
+    70% calc(100% - 15px),
+    calc(70% + 15px) 100%,
+    90% 100%,
+    calc(90% + 30px) calc(100% - 30px),
+    100% calc(100% - 30px),
+    100% 100%,
+    0px 100%);
+  /*background-color: red;*/
+}
+
+section.cyberpunk.black:after {
+  background-color: var(--yellow-color);
+}
+
+section.cyberpunk.black {
+  background-color: var(--black-color);
+  color: var(--yellow-color);
+}
+
+section.cyberpunk:before,
+section.cyberpunk.black:before {
+  content: " ";
+  display: block;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 30px;
+  background-color: var(--yellow-color);
+  position: absolute;
+  clip-path: polygon(
+    calc(22% + 28px) -1px,
+    calc(22% + 45px) 15px,
+    34% 15px,
+    calc(34% + 15px) -1px,
+    70% 0px
+  );
+}
+
+section.cyberpunk.both:before,
+section.cyberpunk.both.black:before {
+  height: 100%;
+  clip-path: polygon(
+    calc(22% + 28px) -1px,
+    calc(22% + 45px) 15px,
+    34% 15px,
+    calc(34% + 15px) -1px,
+    0% 0%, 0% 10%,
+    30px calc(10% + 30px),
+    30px 100%,
+    0% 100%,
+    0% 0%
+  );
+}
+
+/*30px 0px,
+    30px 50%,
+    0px calc(50% + 30px),
+    0px 80%,
+    30px calc(80% + 30px),
+    30px 100%,
+    0% 100%, 0px 30px,
+    31px 0%*/
+
+section.cyberpunk:before {
+  background-color: var(--black-color);
+}
+
+section.cyberpunk:nth-child(even):after,
+section.cyberpunk:nth-child(odd):before {
+ transform: scaleX(-1);
+}
+
+.cyberpunk p {
+  border: 30px solid var(--black-color);
+  border-right: 5px solid var(--black-color);
+  border-left: 5px solid var(--black-color);
+  border-bottom: 24px solid var(--black-color);
+  padding: 5px;
+  clip-path: polygon(0px 25px, 26px 0px, calc(60% - 25px) 0px, 60% 25px, 100% 25px, 100% calc(100% - 10px), calc(100% - 15px) calc(100% - 10px), calc(80% - 10px) calc(100% - 10px), calc(80% - 15px) 100%, 80px calc(100% - 0px), 65px calc(100% - 15px), 0% calc(100% - 15px));
+  background-color: var(--black-color);
+  font-size: 1.2rem;
+  position: relative;
+}
+
+.cyberpunk p:before {
+  content: "P-14";
+  display: block;
+  position: absolute;
+  bottom: -12px;
+  right: 25px;
+  padding: 2px 2px 0px 2px;
+  font-size: 0.6rem;
+  line-height: 0.6rem;
+  color: var(--black-color);
+  background-color: var(--yellow-color);
+  border-left: 2px solid var(--border-color);
+}
+
+.cyberpunk p.inverse:before {
+  content: "T-71";
+  right:90px;
+  bottom: 9px;
+}
+
+section.cyberpunk.black p.cyberpunk:before, section.cyberpunk.black p:before {
+  background-color: var(--black-color);
+  color: var(--yellow-color);
+ }
+
+ .cyberpunk p:hover:before {
+  animation-name: buttonhoverafter;
+  animation-duration: var(--glitched-duration);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.cyberpunk p.scannedh,
+.cyberpunk p.scannedv {
+  position: relative;
+}
+
+p.cyberpunk.scannedh:after,
+.cyberpunk p.scannedh:after {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 0px;
+  width: 100%;
+  height: 3px;
+  background-color: var(--border-color) !important;
+  box-shadow: 0px 0px 10px 4px var(--border-color);
+  animation-name: scannedh;
+  animation-duration: var(--glitched-long-duration);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+@keyframes scannedh {
+  0% {
+    top: -27px;
+  }
+  50% {
+  }
+  51% {
+  }
+  100% {
+    top: calc(100% + 12px);
+  }
+}
+
+p.cyberpunk.scannedv:after,
+.cyberpunk p.scannedv:after {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 0px;
+  height: calc(100% + 55px);
+  width: 3px;
+  background-color: var(--border-color) !important;
+  box-shadow: 0px 0px 10px 4px var(--border-color);
+  animation-name: scannedv;
+  animation-duration: calc(var(--glitched-long-duration) * 3);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+@keyframes scannedv {
+  0% {
+    left: 0px;
+  }
+  50% {
+  }
+  51% {
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes hxafter {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  51% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .list-inline {
@@ -89,14 +761,28 @@ div {
   padding-left: 0px;
 }
 
-.list-inline > li {
+.list-inline li {
   display: inline;
   padding: 10px;
 }
 
+.list-inline i {
+  font-size: 50px;
+  color: var(--black-color);
+}
+
+.list-inline i:hover {
+  color: var(--red-color);
+}
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
 ul {
   display: block;
-  list-style-type: disc;
+  list-style-type: none;
   margin-block-start: 1em;
   margin-block-end: 1em;
   margin-inline-start: 0px;
@@ -104,20 +790,18 @@ ul {
   padding-inline-start: 40px;
 }
 
-li {
-  display: list-item;
-  text-align: -webit-match-parent;
+.card-white {
+  text-align: center;
+  padding: 40px;
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+  border-radius: 4px;
+  margin: 20px 0px;
 }
 
-.fab {
-  font-family: "Font Awesome 5 Brands";
-}
-
-.fa, .fab, .fal, .far, .fas {
-  -webkit-font-smoothing: antialiased;
-  display: inline-block;
-  font-style: normal;
-  font-variant: normal;
-  text-rendering: auto;
-  line-height: 1;
+a {
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+  color: var(--black-color);
+  font-weight: 600;
+  font-size: 16px;
 }
